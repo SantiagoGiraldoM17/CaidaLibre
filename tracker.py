@@ -92,7 +92,7 @@ speeds_m_per_s = speeds_mm_per_s / 1000
 
 # Plot Distance vs. Time
 plt.figure(figsize=(15, 5))
-plt.subplot(1, 3, 1)  # 1 row, 2 columns, 1st subplot
+plt.subplot(1, 2, 1)  # 1 row, 2 columns, 1st subplot
 plt.plot(times, distances_m, '-o')
 plt.title('Distance vs. Time')
 plt.xlabel('Time (seconds)')
@@ -100,7 +100,7 @@ plt.ylabel('Distance (meters)')
 plt.grid(True)
 
 # Plot Speed vs. Time
-plt.subplot(1, 3, 2)  # 1 row, 2 columns, 2nd subplot
+plt.subplot(1, 2, 2)  # 1 row, 2 columns, 2nd subplot
 plt.plot(times[1:], speeds_m_per_s, '-o')  # Exclude the first time point as speeds array is one less
 plt.title('Speed vs. Time')
 plt.xlabel('Time (seconds)')
