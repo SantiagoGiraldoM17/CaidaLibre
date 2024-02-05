@@ -79,7 +79,7 @@ for frame in range(frames):
             list_frames.append(frame)
         
 
-times = np.array([list_frames[i] / 1000 for i in range(len(list_frames))])
+times = np.array([list_frames[i] / 1000 for i in range(len(list_y))])
 distances_pixels = np.array([list_y[i] for i in range(len(list_y))])  # Distance in pixels
 distances_mm = ((distances_pixels - distances_pixels[0]) * scale_cm_per_pixel * 10)
 
@@ -87,13 +87,12 @@ time_differences = np.diff(times)
 distance_differences = np.diff(distances_mm)
 speeds_mm_per_s = distance_differences / time_differences
 
-
 distances_m = distances_mm / 1000
 speeds_m_per_s = speeds_mm_per_s / 1000
 
 # Plot Distance vs. Time
-plt.figure(figsize=(10, 5))
-plt.subplot(1, 2, 1)  # 1 row, 2 columns, 1st subplot
+plt.figure(figsize=(15, 5))
+plt.subplot(1, 3, 1)  # 1 row, 2 columns, 1st subplot
 plt.plot(times, distances_m, '-o')
 plt.title('Distance vs. Time')
 plt.xlabel('Time (seconds)')
@@ -101,7 +100,7 @@ plt.ylabel('Distance (meters)')
 plt.grid(True)
 
 # Plot Speed vs. Time
-plt.subplot(1, 2, 2)  # 1 row, 2 columns, 2nd subplot
+plt.subplot(1, 3, 2)  # 1 row, 2 columns, 2nd subplot
 plt.plot(times[1:], speeds_m_per_s, '-o')  # Exclude the first time point as speeds array is one less
 plt.title('Speed vs. Time')
 plt.xlabel('Time (seconds)')
